@@ -1,0 +1,362 @@
+/*FONT STYLE FOR THE WHOLE APP*/
+@import url('https://fonts.googleapis.com/css?family=Lato|Open+Sans|Roboto');
+
+body {
+  background: url('../images/background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  width: 100vw;
+}
+
+.section-container {
+  margin-top: 7%;
+}
+
+
+/*lOGIN FORM*/
+
+.login {
+  border: 3px solid #f1f1f1;
+  margin: 50px 300px;
+  padding: 50px 50px;
+}
+
+
+input[type=password]{
+  border: 2px solid transparent;
+  border-radius: 3px;
+  font-size: 16px;
+  font-weight: 200;
+  padding: 10px 0;
+  width: 250px;
+  transition: border .5s;
+}
+
+input[type=text]:focus{
+  box-shadow: none;
+  }
+
+input[type=password]:focus{
+  box-shadow: none;
+ }
+
+input[type=text]:focus::-webkit-input-placeholder {
+  color:transparent;
+ }
+
+input[type=password]:focus::-webkit-input-placeholder {
+  color:transparent;
+  }
+
+.welcome-container {
+  margin-top: 30vh;
+}
+
+.couplesName {
+  width: 72vw;
+  height: 40vh;
+  border: 2px black solid;
+}
+/*NAVIGATION BAR*/
+
+
+
+.view-map {
+  background-color: #262626 !important;
+  color: #E5E5E5 !important;
+}
+
+
+
+
+
+
+
+/*==========RSVP================*/
+
+/*.guestattending{
+text-align: center;
+display: list-item;
+}*/
+
+
+.rsvp-container {
+  padding: 0 !important;
+  background-color: white;
+}
+
+.form-group {
+  margin-left: 10px;
+}
+
+.fa-window-close{
+float: right;
+}
+
+.rsvp-title {
+text-align: center;
+color:black;
+height: 8vh;
+opacity: 0.8;
+border: rgba(202, 232, 220, 1.0) solid 5px;
+}
+
+.add-guest-submit {
+  margin-left: 15px;
+}
+
+.plus-guest-input-box {
+  height: 4.4vh!important;
+}
+
+
+/*==============================GUESTBOOK==============================*/
+
+.center-div {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 3px;
+  z-index: 1;
+}
+
+.modalForm {
+  width: 45%;
+  height: 280px;
+  border: 1px black solid;
+  position: absolute;
+  background-color: white;
+}
+
+/*.guestbookInputForm {
+display: block;
+margin-top: 5%;
+}*/
+
+.comment-section{
+  background-color: white;
+  margin-right: 50px!important;
+  list-style: none;
+  width: 30vw;
+  height: 20vh;
+  margin: 5px;
+  display: inline-block;
+  border-bottom: #191919 solid 3px;
+}
+
+.timestamp {
+  color: gray;
+  font-size: 10px;
+}
+
+.guestBookNames {
+    text-transform: capitalize;
+    font-weight: bold;
+    font-size: 15px;
+    display: inline-block;
+    vertical-align:middle;
+}
+
+.guestBookComments {
+    display: block;
+    text-transform: capitalize;
+    margin-top: 4%;
+    vertical-align:middle;
+    display: flex;
+    width: 70%;
+    border-radius: 3px;
+    margin-bottom: 5px;
+    flex-wrap: wrap;
+    color: #808080;
+}
+
+.guestbooklist-item{
+  padding-left:4%;
+}
+
+.post-button {
+  margin-top: 12%;
+}
+/*==============================Admin Home==============================*/
+
+.table {
+  background-color: white;
+}
+
+.tableHead {
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.names{
+  text-transform: capitalize;
+}
+
+
+.btn-secondary{
+  margin-left: 5px;
+}
+
+.badge-default {
+  background-color: #006400!important;
+  border-radius: 40px!important;
+  font-weight: normal!important;
+}
+
+.add-guest {
+  margin-left: 110px;
+}
+
+.close {
+  color: #e60000!important;
+  text-shadow: none;
+
+}
+
+.fa-filter {
+margin-right: 5px;
+}
+
+.fa-sort {
+  padding-left: 5px;
+}
+
+.fa-envelope-o{
+  color: black;
+}
+
+.admin-phonenumber {
+  font-weight: bold;
+  color: #262626;
+  font-size: 15px;
+}
+
+.table {
+  margin-top: 25px;
+}
+
+.pagination-div {
+  display: inline;
+  text-align: center;
+}
+
+/*-----UPLOAD PHOTOS------*/
+
+#upload-form {
+  margin: 0 auto;
+  width: 90vw;
+}
+#upload-form p:nth-child(2) {
+  display: inline-block;
+}
+
+#upload-input {
+  text-align: center;
+  display: inline-block;
+  color: white;
+  font-weight: bold;
+  height: 25px;
+  width: 120px;
+  background-color: rgb(0,100,255);
+  cursor: pointer;
+  border: 1px solid grey;
+  border-radius: 5px;
+}
+
+#drop-box {
+  display: inline-block;
+}
+
+#drop-box div:nth-of-type(1) {
+  position: relative;
+  text-align: center;
+  height: 200px;
+  width: 300px;
+  border: 1px dashed grey;
+  background: url(../images/thumb.jpg) center no-repeat;
+  background-size: cover;
+}
+
+#drop-box p {
+  position: absolute;
+  font-size: 30px;
+  left: 18%;
+  top: 45%;
+}
+
+#drop-box button {
+  display: block;
+  width: 300px;
+  height: 50px;
+  margin-bottom: 20px
+}
+
+#image-preview img {
+  margin: 10px;
+  float: left;
+  width: 250px;
+  height: 170px;
+}
+
+.album-photo {
+  height: 200px;
+  width: 350px;
+  margin: 20px;
+  cursor: pointer;
+}
+
+.album-view {
+  position: relative;
+  margin: 50px 0;
+  background-color: rgb(0,0,0)
+}
+.album-view img {
+  display: block;
+  margin: 0 auto;
+  height: 80vh;
+  width: 60vw;
+}
+.close-album {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 40px;
+  width: 40px;
+  z-index: 10;
+  cursor: pointer;
+  border: 1px solid white;
+  background: url(../images/close-button.png) center no-repeat;
+  background-size: cover;
+}
+.next-photo {
+  position: absolute;
+  right: 50px;
+  top: 45%;
+  height: 60px;
+  width: 40px;
+  background: url(../images/right-arrow.png) center no-repeat;
+  background-size: cover;
+  cursor: pointer;
+}
+.next-photo:hover {
+  transform: scale(1.3);
+}
+.previous-photo {
+  position: absolute;
+  left: 50px;
+  top: 45%;
+  height: 60px;
+  width: 40px;
+  background: url(../images/left-arrow.png) center no-repeat;
+  background-size: cover;
+  cursor: pointer;
+}
+.previous-photo:hover {
+  transform: scale(1.3);
+}
+
+/*==============================Edit==============================*/

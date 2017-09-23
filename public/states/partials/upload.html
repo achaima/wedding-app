@@ -1,0 +1,47 @@
+<div ng-controller="S3Controller as s3">
+  <div id="upload-form">
+    <form ng-submit="s3.uploadImages()">
+
+      <div>
+        <div class="button"
+             ngf-select
+             ng-model="s3.images"
+             ngf-multiple="true"
+             ngf-max-files="10"
+             ngf-pattern="'image/*'"
+             value="Select Images"
+             id="upload-input">Select Files
+        </div>
+
+        <p>Maximum 10 files</p>
+      </div>
+
+      <div id="drop-box">
+        <div ngf-drop
+             class="drop-box"
+             ng-model="s3.images"
+             ngf-multiple="true"
+             ngf-max-files="10"
+             ngf-pattern="'image/*'">
+             <p>Drop Images here</p>
+        </div>
+
+        <button id="upload-button"
+                type="submit"
+                ng-disabled="!s3.images">Upload
+        </button>
+      </div>
+
+      <div id="image-preview"
+           ng-repeat="image in s3.images track by $index">
+           <img
+             ngf-src="image"
+             ngf-background="image"
+             ngf-resize="{width: 200, height: 200, quality: 0.9}"
+             ngf-no-object-url="true or false">
+      </div>
+
+    </form>
+  </div>
+
+</div>

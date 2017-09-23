@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+
+<section class="nav">
+  <div ui-view="navbar"></div>
+</section>
+
+
+<section>
+  <div ng-if="auth.user">
+    <p><strong>
+      Welcome {{ auth.user.email }}!
+    </strong> </p>
+
+  </div>
+</section>

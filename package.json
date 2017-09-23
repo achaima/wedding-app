@@ -1,0 +1,36 @@
+{
+  "name": "wedding-rsvp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "@uirouter/angularjs": "^1.0.3",
+    "angular": "^1.6.4",
+    "angular-smart-table": "^2.1.8",
+    "body-parser": "^1.17.2",
+    "bootstrap": "^3.3.7",
+    "express": "^4.15.3",
+    "moment": "^2.18.1",
+    "mongoose": "^4.10.5",
+    "morgan": "^1.8.2",
+    "ng-file-upload": "^12.2.13"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "nodemon": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tolavolaoke/wedding-rsvp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tolavolaoke/wedding-rsvp/issues"
+  },
+  "homepage": "https://github.com/tolavolaoke/wedding-rsvp#readme"
+}
