@@ -1,6 +1,6 @@
 <div ng-controller = "GuestController as guest" ng-init="guest.getAll()">
 
-  <div class="container" infinite-scroll="nextPage()" infinite-scroll-distance="0.1">
+  <div class="container">
 
     <div class="row">
 
@@ -9,9 +9,8 @@
         <input type="text"
                class="form-control names"
                ng-model="searchBox.firstName"
-               placeholder="Search Guest"
-               aria-describedby="basic-addon2">
-        <span class="input-group-addon" id="basic-addon2">
+               placeholder="Search Guest">
+              <span class="input-group-addon" id="basic-addon2">
                 <i class="fa fa-search" aria-hidden="true"></i>
         </span>
       </div>
@@ -48,28 +47,12 @@
             <button
               type="button"
               class="btn btn-secondary add-guest"
-              ng-click="isAddGuestOpen = !isAddGuestOpen">
+              ng-click="guest.rsvpGuest">
                 <i class="fa fa-user-plus" aria-hidden="true"></i>
             </button>
 
-            <!-- <button
-              type="button"
-              class="btn btn-secondary"
-              ng-click="isUploadPhotoOpen = !isUploadPhotoOpen">
-                <i class="fa fa-file-image-o" aria-hidden="true"></i>
-            </button> -->
-
-
-      <!-- <button type="button"
-              class="close"
-              aria-label="Close"
-              ng-show="isAddGuestOpen"
-              ng-click="isAddGuestOpen = false">
-        <span aria-hidden="true">&times;</span>
-      </button> -->
-
-        <div ui-view="addGuest"
-             ng-show="isAddGuestOpen"
+        <div ng-show="guest.rsvpForm"
+             ui-view="addGuest"
              class="addGuest">
         </div>
 
@@ -197,7 +180,7 @@
 
 <!-- DELETE GUEST MODAL -->
     <div ng-show="guest.modalShown" class="center-div modalForm">
-              <p>Are you sure you want to delete {{guest.deletingPerson.firstName}} {{guest.deletingPerson.lastName}}?</p>
+              <p>`Are you sure you want to delete ${guest.deletingPerson.firstName} {guest.deletingPerson.lastName}?`</p>
                   <button
                     class="btn btn-default delete-person-button"
                     ng-click = "guest.deleteGuest(guest.deletingPerson._id)">Delete

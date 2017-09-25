@@ -159,6 +159,11 @@ function GuestController(GuestFactory, $stateParams, $state) {
     controller.deletingPerson = person;
   };
 
+  controller.rsvpGuest = function(){
+    console.log('hi');
+    controller.rsvpForm = !controller.rsvpForm;
+  };
+
   controller.confirmGuest = function() {
     controller.addGuestModal = !controller.addGuestModal;
   };

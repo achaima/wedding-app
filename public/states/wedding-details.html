@@ -1,16 +1,21 @@
 <!DOCTYPE html>
-<div class="container">
+<div class="container-fluid">
   <div class="row justify-content-center">
 
 
 <button type="button"
         name="button"
+        ng-click="isAddGuestOpen = !isAddGuestOpen"
         class="btn btn-secondary">RSVP
 </button>
 
+<div ui-view="addGuest"
+     ng-show="isAddGuestOpen"
+     class="addGuest">
+</div>
   </div>
 
-<div class="container mt-4">
+<div class="container-fluid mt-4">
   <div class="row justify-content-center">
 
       <div class="col-md-5">
@@ -25,8 +30,6 @@
               6:00pm</p>
               <p class="card-text">Attire:<br>
               Caftans & Denim cut-off casual. Bring or wear your suit for a dip in the Atlantic.</p>
-
-              <button type="button" class="btn btn-secondary view-map" name="button">View on map</button>
             </div>
           </div>
       </div>
@@ -42,8 +45,6 @@
               6:00pm</p>
               <p class="card-text">Attire:<br>
               Caftans & Denim cut-off casual. Bring or wear your suit for a dip in the Atlantic.</p>
-
-              <button type="button" class="btn btn-secondary view-map" name="button">View on map</button>
             </div>
           </div>
       </div>
