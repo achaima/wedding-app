@@ -1,7 +1,6 @@
-<!-- <div ng-init="guests.getSingleUser()"> -->
 <div ng-controller = "GuestController as guest" ng-init="guest.getAll()">
 
-  <div class="container">
+  <div class="container" infinite-scroll="nextPage()" infinite-scroll-distance="0.1">
 
     <div class="row">
 
@@ -192,6 +191,10 @@
   </tbody>
   </table>
 
+  <div infinite-scroll="guest.myPagingFunction()" infinite-scroll-distance="3"></div>
+      </div>
+   </div>
+
 <!-- DELETE GUEST MODAL -->
     <div ng-show="guest.modalShown" class="center-div modalForm">
               <p>Are you sure you want to delete {{guest.deletingPerson.firstName}} {{guest.deletingPerson.lastName}}?</p>
@@ -208,7 +211,7 @@
 
 <!-- PAGINATION  -->
 
-  <div class="row justify-content-center">
+  <!-- <div class="row justify-content-center">
     <div class="btn-toolbar"
         ng-if="guest.showPaginator"
         role="toolbar"
@@ -224,7 +227,4 @@
           </button>
       </div>
     </div>
-   </div>
-
-    </div>
- </div>
+   </div> -->
