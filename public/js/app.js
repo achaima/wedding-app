@@ -11,8 +11,7 @@ function MainRouter($stateProvider, $urlRouterProvider) {
       url: '/admin',
       views: {
         '': { templateUrl: '../states/admin.html' },
-        'addGuest@admin': { templateUrl: '../states/partials/rsvp.html' },
-        'upload@admin': { templateUrl: '../states/partials/upload.html' }
+        'addGuest@admin': { templateUrl: '../states/partials/rsvp.html' }
       },
       resolve: {
         currentAuth: [
@@ -31,21 +30,6 @@ function MainRouter($stateProvider, $urlRouterProvider) {
       url: '/welcome',
       views: {
         '': { templateUrl: '../states/welcome.html' }
-      },
-      resolve: {
-        currentAuth: [
-          'AuthFactory',
-          (AuthFactory) => {
-            return AuthFactory.$requireSignIn();
-          }
-        ]
-      }
-    })
-
-    .state('gallery', {
-      url: '/gallery',
-      views: {
-        '': { templateUrl: '../states/gallery.html' }
       },
       resolve: {
         currentAuth: [

@@ -63,7 +63,6 @@ function GuestController(GuestFactory, $stateParams, $state) {
 
 
         createPagesArray(controller.guests);
-        console.log('Got guests', controller.guests);
       },
       function err(err) {
         console.warn('Could not get guests', err);
@@ -90,7 +89,6 @@ function GuestController(GuestFactory, $stateParams, $state) {
 //**************************DELETE GUEST***********************************//
 
   controller.deleteGuest = function(guestId) {
-    console.log(guestId);
 
     GuestFactory.deleteGuest(guestId).then(
       function sucess(response) {
@@ -105,9 +103,7 @@ function GuestController(GuestFactory, $stateParams, $state) {
 
 //**************************UPDATE GUEST***********************************//
   controller.updateGuest = function (updatedGuest) {
-    console.log(updatedGuest);
-    console.log('update reporting for duty sir');
-    var guestId = updatedGuest._id;
+    const guestId = updatedGuest._id;
 
     GuestFactory.updateGuest(updatedGuest, guestId).then(
       function success() {
@@ -162,7 +158,6 @@ function GuestController(GuestFactory, $stateParams, $state) {
 
   controller.openModal= function(person) {
     controller.modalShown = !controller.modalShown;
-    console.log(person);
     controller.deletingPerson = person;
   };
 
