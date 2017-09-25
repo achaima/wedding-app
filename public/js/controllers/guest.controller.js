@@ -176,9 +176,9 @@ function GuestController(GuestFactory, $stateParams, $state) {
     controller.newGuest = {};
     controller.guests = [];
     controller.guestDetails = {};
-    controller.pageNumbers = [];
-    controller.lower = 0;
-    controller.upper = 10;
+    // controller.pageNumbers = [];
+    // controller.lower = 0;
+    // controller.upper = 17;
     controller.isEditDisabled = false;
     controller.allGuests = {
       'Traditional Wedding': [],

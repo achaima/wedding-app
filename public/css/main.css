@@ -212,10 +212,14 @@ margin-top: 5%;
   margin-left: 110px;
 }
 
+.guestTableDiv{
+  overflow-y: scroll!important;
+  border: 5px black solid;
+}
+
 .close {
   color: #e60000!important;
   text-shadow: none;
-
 }
 
 .fa-filter {
