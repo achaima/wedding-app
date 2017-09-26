@@ -1,6 +1,6 @@
 <div ng-controller="GuestController as guest" ng-init="guest.getAll()">
 
-  <div class="container">
+  <div class="container-fluid">
 
     <div class="row">
 
@@ -60,12 +60,11 @@
 
 <!-- GUEST TABLE -->
 <div class="col-md-10">
-
-      <table class="table table hover">
+      <table class="table table-hover">
         <thead class="tableHead">
           <tr>
             <th>No.</th>
-            <th>Names
+            <th class="nameHeader">Names
               <i class="fa fa-sort"
                  ng-click="guest.orderBy('firstName')"></i>
             </th>
@@ -83,110 +82,114 @@
             <th></th>
           </tr>
         </thead>
-
-
-  <tbody class="guestTableDiv">
-
-
-  <tr ng-repeat="person in guest.guests | filter:searchBox | filter:guest.eventFilter | orderBy: guest.headerSort track by $index">
-
-      <td>{{ $index + 1 }}</td>
-
-      <td ng-hide="editMode" class="names" >{{ person.firstName}} {{ person.lastName}}</td>
-        <td ng-show="editMode">
-          <input
-            type="text"
-            ng-value="person.firstName"
-            ng-model="guest.updatedGuest.firstName"/>
-
-          <input
-            type="text"
-            ng-model="guest.updatedGuest.lastName"
-            ng-value="person.lastName"/>
-        </td>
-
-        <td>
-          <a ng-href="mailto:{{person.email}}" target="_top">
-            <i class="fa fa-envelope-o" aria-hidden="true"></i>
-          </a>
-          <i class="fa fa-phone"
-             aria-hidden="true"
-             ng-click="isPhoneNumberShowing = !isPhoneNumberShowing">
-             <p ng-show="isPhoneNumberShowing" class="admin-phonenumber">{{person.number}}</p>
-          </i>
-        </td>
-
-      <td ng-hide="editMode" class="admin-attending-events">{{ person.attendingEvents}}</td>
-        <td ng-show="editMode">
-            <select ng-model="guest.updatedGuest.attendingEvents">
-              <option
-                ng-repeat="event in guest.eventOptions"
-                ng-selected="event"
-                ng-value="event">{{ event }}
-              </option>
-            </select>
-        </td>
-
-
-      <td ng-hide="editMode">{{ person.extraGuests}}</td>
-        <td ng-show="editMode">
-          <select  ng-model="guest.updatedGuest.extraGuests">
-            <option value="0" ng-selected="guest.updatedGuest.extraGuests === 0">0</option>
-            <option
-              ng-repeat="option in guest.extraGuestsOptions"
-              ng-selected="option"
-              ng-value="option ">{{ option }}
-            </option>
-          </select>
-        </td>
-
-        <td>
-          <button
-            type="submit"
-            class="btn btn-secondary"
-            ng-hide="editMode"
-            ng-click="editMode = true; guest.editGuest(person); guest.disableEdit()"
-            ng-disabled="guest.isEditDisabled">
-          <i class="fa fa-pencil" aria-hidden="true"></i>
-          </button>
-
-          <button
-            type="button"
-            class="btn btn-success"
-            ng-show="editMode"
-            ng-click="guest.updateGuest(guest.updatedGuest)">Save
-         </button>
-
-          <button
-            type="button"
-            class="btn btn-danger"
-            ng-show="editMode"
-            ng-click="editMode = false; guest.enableEdit()">Undo
-          </button>
-
-           <button
-             type="button"
-             class="close"
-             aria-label="Close"
-             ng-hide="editMode"
-             ng-click="guest.openModal(person)">
-           <span aria-hidden="true">&times;</span>
-          </button>
-        </td>
-
-    </tr>
-
-  </tbody>
   </table>
+
+  <div style="height: 500px; overflow-y: scroll">
+    <table class="table table-hover">
+      <tbody>
+
+      <tr ng-repeat="person in guest.guests | filter:searchBox | filter:guest.eventFilter | orderBy: guest.headerSort track by $index">
+
+          <td>{{ $index + 1 }}</td>
+
+          <td ng-hide="editMode" class="names" >{{ person.firstName}} {{ person.lastName}}</td>
+            <td ng-show="editMode">
+              <input
+                class="editName"
+                type="text"
+                ng-value="person.firstName"
+                ng-model="guest.updatedGuest.firstName"/>
+
+              <input
+                class="editName"
+                type="text"
+                ng-model="guest.updatedGuest.lastName"
+                ng-value="person.lastName"/>
+            </td>
+
+            <td ng-hide="editMode">
+              <a ng-href="mailto:{{person.email}}" target="_top">
+                <i class="fa fa-envelope-o" aria-hidden="true" ng-hide="isPhoneNumberShowing" ></i>
+              </a>
+              <i class="fa fa-phone"
+                 aria-hidden="true"
+                 ng-click="isPhoneNumberShowing = !isPhoneNumberShowing">
+                 <p ng-show="isPhoneNumberShowing" class="admin-phonenumber">{{person.number}}</p>
+              </i>
+            </td>
+
+          <td ng-hide="editMode" class="admin-attending-events">{{ person.attendingEvents}}</td>
+            <td ng-show="editMode">
+                <select ng-model="guest.updatedGuest.attendingEvents">
+                  <option
+                    ng-repeat="event in guest.eventOptions"
+                    ng-selected="event"
+                    ng-value="event">{{ event }}
+                  </option>
+                </select>
+            </td>
+
+
+          <td ng-hide="editMode">{{ person.extraGuests}}</td>
+            <td ng-show="editMode">
+              <select  ng-model="guest.updatedGuest.extraGuests">
+                <option value="0" ng-selected="guest.updatedGuest.extraGuests === 0">0</option>
+                <option
+                  ng-repeat="option in guest.extraGuestsOptions"
+                  ng-selected="option"
+                  ng-value="option ">{{ option }}
+                </option>
+              </select>
+            </td>
+
+            <td  class="actionColumn">
+              <button
+                type="submit"
+                class="btn btn-secondary"
+                ng-hide="editMode"
+                ng-click="editMode = true; guest.editGuest(person); guest.disableEdit()"
+                ng-disabled="guest.isEditDisabled">
+              <i class="fa fa-pencil" aria-hidden="true"></i>
+              </button>
+
+              <button
+                type="button"
+                class="btn btn-success"
+                ng-show="editMode"
+                ng-click="guest.updateGuest(guest.updatedGuest)">Save
+             </button>
+
+              <button
+                type="button"
+                class="btn btn-danger"
+                ng-show="editMode"
+                ng-click="editMode = false; guest.enableEdit()">Undo
+              </button>
+
+               <button
+                 type="button"
+                 class="close"
+                 aria-label="Close"
+                 ng-hide="editMode"
+                 ng-click="guest.openModal(person)">
+               <span aria-hidden="true">&times;</span>
+              </button>
+            </td>
+
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
 </div>
 
-  <div infinite-scroll="guest.myPagingFunction()" infinite-scroll-distance="3"></div>
-      </div>
-   </div>
+</div>
+
 
 <!-- DELETE GUEST MODAL -->
     <div ng-show="guest.modalShown" class="center-div modalForm">
-              <p>`Are you sure you want to delete ${guest.deletingPerson.firstName} {guest.deletingPerson.lastName}?`</p>
+              <p>Are you sure you want to delete {{guest.deletingPerson.firstName}} {{guest.deletingPerson.lastName}}?</p>
                   <button
                     class="btn btn-default delete-person-button"
                     ng-click = "guest.deleteGuest(guest.deletingPerson._id)">Delete
@@ -196,24 +199,4 @@
                     ng-click= "guest.modalShown = false">Cancel
                 </button>
     </div>
-
-
-<!-- PAGINATION  -->
-
-  <!-- <div class="row justify-content-center">
-    <div class="btn-toolbar"
-        ng-if="guest.showPaginator"
-        role="toolbar"
-        aria-label="Toolbar with button groups">
-      <div
-        ng-repeat="page in guest.pageNumbers"
-        class="pagination-div">
-          <button type="button"
-                  class="btn btn-secondary"
-                  ng-click="guest.changePage(page)"
-                  ng-disabled="guest.upper === page * 10"
-                  style="width: 50px">{{ page }}
-          </button>
-      </div>
-    </div>
-   </div> -->
+   </div>

@@ -26,10 +26,10 @@ function MainRouter($stateProvider, $urlRouterProvider) {
       url: '/authrequired',
       templateUrl: '../states/auth-required.html'
     })
-    .state('welcome', {
-      url: '/welcome',
+    .state('home', {
+      url: '/home',
       views: {
-        '': { templateUrl: '../states/welcome.html' }
+        '': { templateUrl: '../states/home.html' }
       },
       resolve: {
         currentAuth: [
@@ -57,7 +57,8 @@ function MainRouter($stateProvider, $urlRouterProvider) {
     .state('wedding-details', {
       url: '/wedding-details',
       views: {
-        '': { templateUrl: '../states/wedding-details.html' }
+        '': { templateUrl: '../states/wedding-details.html' },
+        'addGuest@wedding-details': { templateUrl: '../states/partials/rsvp.html' }
       },
       resolve: {
         currentAuth: [

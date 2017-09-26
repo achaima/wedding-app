@@ -26,15 +26,6 @@ function GuestFactory ($http) {
         data: updatedGuest
       });
     },
-
-  //   getSingleUser: function(uid) {
-  //     return $http({
-  //       method: 'GET',
-  //       url: `/guests/${uid}`,
-  //       data: uid
-  //     });
-  //   }
-  // };
     getAll: function() {
       return $http({
         method: 'GET',

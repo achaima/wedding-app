@@ -19,10 +19,6 @@ function GuestController(GuestFactory, $stateParams, $state) {
     }
   };
 
-  // controller.changePage = function(page) {
-  //   controller.upper = page * 10;
-  //   controller.lower = (page - 1) * 10;
-  // };
 
   function categoriseGuests(){
     controller.guests.forEach(function(guest) {
@@ -58,9 +54,6 @@ function GuestController(GuestFactory, $stateParams, $state) {
         controller.traditionalGuestsTotal = sumEventGuests('Traditional Wedding');
 
         controller.totalGuests = controller.whiteWeddingGuestsTotal + controller.traditionalGuestsTotal;
-
-
-        // createPagesArray(controller.guests);
       },
       function err(err) {
         console.warn('Could not get guests', err);
@@ -85,7 +78,6 @@ function GuestController(GuestFactory, $stateParams, $state) {
   };
 
 //**************************DELETE GUEST***********************************//
-
   controller.deleteGuest = function(guestId) {
 
     GuestFactory.deleteGuest(guestId).then(
@@ -114,8 +106,7 @@ function GuestController(GuestFactory, $stateParams, $state) {
   };
 
 
-  //**************************ORDER BY HEADERS***********************************//
-
+  //******ORDER BY HEADERS******//
   controller.orderBy = function(header) {
     if(controller.headerSort === header) {
       controller.headerSort = '-' + header;
@@ -124,6 +115,7 @@ function GuestController(GuestFactory, $stateParams, $state) {
     }
   };
 
+  //******FILTER******//
   controller.filterBy = function(eventFilter) {
     if(controller.eventFilter === eventFilter) {
       // controller.showPaginator = true;
@@ -134,11 +126,6 @@ function GuestController(GuestFactory, $stateParams, $state) {
     }
   };
 
-  // controller.changePage = function(page) {
-  //   controller.lower = (page * 10) - 10;
-  //   controller.upper = page * 10;
-  //   controller.enableEdit();
-  // };
 
   controller.disableEdit = function() {
     controller.isEditDisabled = true;
@@ -147,27 +134,19 @@ function GuestController(GuestFactory, $stateParams, $state) {
     controller.isEditDisabled = false;
   };
 
-  // function createPagesArray(guests) {
-  //   var pages = Math.ceil(guests.length/10);
-  //   for(var i = 1; i <= pages; i++) {
-  //     controller.pageNumbers.push(i);
-  //   }
-  // }
-
   controller.openModal= function(person) {
     controller.modalShown = !controller.modalShown;
     controller.deletingPerson = person;
   };
-
+  
   controller.rsvpGuest = function(){
-    console.log('hi');
+    console.log('clicked');
     controller.rsvpForm = !controller.rsvpForm;
   };
 
   controller.confirmGuest = function() {
     controller.addGuestModal = !controller.addGuestModal;
   };
-
 
 //**************************INITIALISE***********************************//
   function init() {
@@ -176,23 +155,17 @@ function GuestController(GuestFactory, $stateParams, $state) {
     controller.newGuest = {};
     controller.guests = [];
     controller.guestDetails = {};
-    // controller.pageNumbers = [];
-    // controller.lower = 0;
-    // controller.upper = 17;
     controller.isEditDisabled = false;
     controller.allGuests = {
       'Traditional Wedding': [],
       'White Wedding': [],
       'Both': []
     };
-    // controller.showPaginator = true;
-
+    controller.rsvpForm = false;
   }
   init();
 }
 //********************************************************************//
-
-
 GuestController.$inject = ['GuestFactory', '$stateParams', '$state'];
 
 angular

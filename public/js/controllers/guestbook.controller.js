@@ -2,7 +2,6 @@ function GuestBookController(GuestBookFactory, $stateParams, $state) {
   var controller = this;
 
   controller.addPost = function(){
-    console.log('im here');
     GuestBookFactory.createPost(controller.newPost).then(
         function success(response) {
           $state.reload();

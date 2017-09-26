@@ -1,14 +1,13 @@
-<div class="container rsvp-container mt-4">
+<div class="container rsvp-container mt-4"  ng-controller = "GuestController as guest">
+
+<div>
+  <i class="fa fa-window-close"
+     ng-click="guest.rsvpGuest()"
+     aria-hidden="true">
+ </i>
 
     <h1 class="rsvp-title">RSVP</h1>
-<!--
-    <i class="fa fa-window-close"
-       ng-show="isAddGuestOpen"
-       ng-click="isAddGuestOpen = false"
-       aria-hidden="true">
-   </i> -->
 
-    <div ng-controller = "GuestController as guest">
 
       <form class="form-group"
             name="guestRSVPForm"

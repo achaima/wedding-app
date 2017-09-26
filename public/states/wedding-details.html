@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<div class="container-fluid">
+<div class="container-fluid" ng-controller="GuestController as guest">
   <div class="row justify-content-center">
 
 
 <button type="button"
         name="button"
-        ng-click="isAddGuestOpen = !isAddGuestOpen"
-        class="btn btn-secondary">RSVP
+        ng-hide="guest.rsvpForm"
+        ng-click="guest.rsvpGuest()"
+        class="btn btn-default mb-4 greenButton">RSVP
 </button>
 
-<div ui-view="addGuest"
-     ng-show="isAddGuestOpen"
+<div ng-show="guest.rsvpForm"
+     ui-view="addGuest"
      class="addGuest">
 </div>
   </div>
@@ -18,13 +19,13 @@
 <div class="container-fluid mt-4">
   <div class="row justify-content-center">
 
-      <div class="col-md-5">
+      <div class="col-md-4">
           <div class="card">
-            <img class="card-img-top img-fluid" src="http://assets.westinbayshore.com/responsive/575/assets.westinbayshore.com/lps/assets/u/Nicky---Mo-Wedding-Ceremony-539.jpg" alt="Card image cap">
+            <img class="card-img-top img-fluid" src="../images/classic-wedding.jpg" alt="Card image cap">
             <div class="card-block">
               <h4 class="card-title">White Wedding</h4>
               <p class="card-text">Where:<br>
-              22 Western Road, Wood Green, London N22 6UH</p>
+              Bingham Hotel, 61-63 Petersham Road, Surrey, TW10 6UT</p>
               <p class="card-text">When:<br>
               Friday June 13 <br>
               6:00pm</p>
@@ -33,13 +34,18 @@
             </div>
           </div>
       </div>
-      <div class="col-md-5">
+
+      <!-- <div class="col-md-2">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2486.158865119919!2d-0.30548858423193326!3d51.45523957962655!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48760c3fa83a9895%3A0xb22de87d17009c26!2sBingham!5e0!3m2!1sen!2suk!4v1506426541638" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+      </div> -->
+
+      <div class="col-md-4">
           <div class="card">
-            <img class="card-img-top img-fluid" src="http://assets.westinbayshore.com/responsive/575/assets.westinbayshore.com/lps/assets/u/Nicky---Mo-Wedding-Ceremony-539.jpg" alt="Card image cap">
+            <img class="card-img-top img-fluid" src="../images/traditional-wedding.jpg" alt="Card image cap">
             <div class="card-block">
               <h4 class="card-title">Traditional Wedding</h4>
               <p class="card-text">Where:<br>
-              22 Western Road, Wood Green, London N22 6UH</p>
+              The Decorium, 22 Western Road, Wood Green, London N22 6UH</p>
               <p class="card-text">When:<br>
               Friday June 13 <br>
               6:00pm</p>
@@ -48,6 +54,10 @@
             </div>
           </div>
       </div>
+
+      <!-- <div class="col-md-2">
+        <iframe <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2478.526279916625!2d-0.11752438465322616!3d51.595244979649586!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761be0e712b70d%3A0x9c8fe4496c4b1a92!2s22+Western+Rd%2C+Wood+Green%2C+London+N22+6UH!5e0!3m2!1sen!2suk!4v1506426695570" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+      </div> -->
 
     </div>
   </div>
