@@ -26,16 +26,16 @@ function GuestController(GuestFactory, $stateParams, $state) {
   }
 
   function sumEventGuests(event) {
-    let total = controller.allGuests[event].reduce((sum, guest) => {
+    let extraGuests = controller.allGuests[event].reduce((sum, guest) => {
       return sum += guest.extraGuests;
     }, 0);
 
     const both = controller.allGuests['Both'];
     both.forEach((guest) => {
-      total += guest.extraGuests;
+      extraGuests += guest.extraGuests;
     });
 
-    total += both.length + controller.allGuests[event].length;
+    const total = extraGuests + both.length + controller.allGuests[event].length;
 
     return total;
   }
