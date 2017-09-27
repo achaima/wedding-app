@@ -67,7 +67,7 @@ input[type=password]:focus::-webkit-input-placeholder {
 /*NAVIGATION BAR*/
 nav {
   background-color: #191919!important;
-  padding: 0!important
+  padding: 0!important;
 }
 
 .navbar-toggler {
@@ -125,18 +125,6 @@ text-decoration: underline;
 
 
 /*==============================GUESTBOOK==============================*/
-
-/*.center-div {
-  position: absolute;
-  margin: auto;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  border-radius: 3px;
-  z-index: 1;
-}*/
-
 .greenButton {
   background-color: #004000;
   color: #fefdfb;

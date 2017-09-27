@@ -113,7 +113,6 @@ function GuestController(GuestFactory, $stateParams, $state) {
     if(controller.eventFilter === eventFilter) {
       controller.eventFilter = '';
     } else {
-      controller.showPaginator = false;
       controller.eventFilter = eventFilter;
     }
   };
@@ -135,7 +134,6 @@ function GuestController(GuestFactory, $stateParams, $state) {
   };
 
   controller.rsvpGuest = () => {
-    console.log('clicked');
     controller.rsvpForm = !controller.rsvpForm;
   };
 

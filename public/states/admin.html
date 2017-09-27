@@ -1,8 +1,8 @@
-<div ng-controller="GuestController as guest" ng-init="guest.getAll()">
+<div ng-controller="GuestController as guest"
+     ng-init="guest.getAll()">
 
-  <div class="container">
-
-    <div class="row adminRow">
+ <div class="container">
+  <div class="row adminRow">
 
       <div class="input-group col-md-4">
         <input type="text"
@@ -10,77 +10,153 @@
                ng-model="searchBox.firstName"
                placeholder="Search Guest">
               <span class="input-group-addon" id="basic-addon2">
-                <i class="fa fa-search" aria-hidden="true"></i>
+              <i class="fa fa-search" aria-hidden="true"></i>
         </span>
       </div>
 
-
          <button type="button"
                  class="btn btn-secondary">Registered
-           <span class="badge badge-default">{{guest.registeredGuests}}</span>
+                 <span class="badge badge-default">{{guest.registeredGuests}}</span>
          </button>
 
-            <button type="button"
-                    class="btn btn-secondary"
-                    ng-model="guest.eventFilter"
-                    ng-click="guest.filterBy('White Wedding')">
-                    <i class="fa fa-filter" aria-hidden="true"></i>White
-              <span class="badge badge-default">{{guest.whiteWeddingGuestsTotal}}</span>
-            </button>
+         <button type="button"
+                  class="btn btn-secondary"
+                  ng-model="guest.eventFilter"
+                  ng-click="guest.filterBy('White Wedding')">
+                  <i class="fa fa-filter" aria-hidden="true"></i>White
+                  <span class="badge badge-default">{{guest.whiteWeddingGuestsTotal}}</span>
+          </button>
 
-            <button type="button"
-                    class="btn btn-secondary"
-                    ng-model="guest.eventFilter"
-                    ng-click="guest.filterBy('Traditional Wedding')">
-                    <i class="fa fa-filter" aria-hidden="true"></i>Traditional
-              <span class="badge badge-default">{{guest.traditionalGuestsTotal}}</span>
-            </button>
+          <button type="button"
+                  class="btn btn-secondary"
+                  ng-model="guest.eventFilter"
+                  ng-click="guest.filterBy('Traditional Wedding')">
+                  <i class="fa fa-filter" aria-hidden="true"></i>Traditional
+                  <span class="badge badge-default">{{guest.traditionalGuestsTotal}}</span>
+          </button>
 
-            <button type="button"
-                    class="btn btn-secondary">Total
-              <span class="badge badge-default">{{guest.totalGuests}}</span>
-            </button>
+          <button type="button"
+                  class="btn btn-secondary">Total
+            <span class="badge badge-default">{{guest.totalGuests}}</span>
+          </button>
 
-<!-- Add Guest Form -->
+          <button
+            type="button"
+            class="btn btn-secondary add-guest"
+            ng-click="guest.rsvpGuest()">
+              <i class="fa fa-user-plus"
+                 aria-hidden="true"></i>
+          </button>
 
-            <button
-              type="button"
-              class="btn btn-secondary add-guest"
-              ng-click="guest.rsvpGuest()">
-                <i class="fa fa-user-plus" aria-hidden="true"></i>
-            </button>
+          <div class="container rsvp-container mt-4" ng-show="guest.rsvpForm">
 
-        <div ng-show="guest.rsvpForm"
-             ui-view="addGuest"
-             class="addGuest">
-        </div>
+          <div>
 
-</div>
+            <i class="fa fa-window-close"
+               ng-click="guest.rsvpGuest()"
+               aria-hidden="true">
+           </i>
+              <h1 class="rsvp-title">RSVP</h1>
+
+
+                <form class="form-group"
+                      name="guestRSVPForm"
+                      ng-submit="guest.AddGuest()" >
+
+                    <div class="form-group row" >
+
+                        <div class="col-md-2 ">
+                          <label for="ex1">First Name:*</label>
+                            <input type = "text"
+                                   class="form-control"
+                                   ng-model="guest.newGuest.firstName"
+                                   required/>
+                        </div>
+
+                        <div class="col-md-2">
+                          <label for="ex1">Surname:*</label>
+                            <input type= "text"
+                                   class="form-control"
+                                   ng-model="guest.newGuest.lastName"
+                                   required/>
+                        </div>
+
+                      <div class="col-md-3">
+                         <label for="ex1">Email:</label>
+                           <input  type="textcD"
+                                   class="form-control" id="ex2"
+                                   ng-model="guest.newGuest.email">
+                       </div>
+
+                       <div class="col-md-2">
+                         <label for="ex1">No.</label>
+                           <input type="text"
+                                  class="form-control" id="ex3"
+                                  ng-model="guest.newGuest.number">
+                       </div>
+
+                      <div class="col-md-1">
+                        <label for="ex1">+Guests*</label>
+                          <br>
+                          <select class="plus-guest-input-box"
+                                  ng-model="guest.newGuest.extraGuests"
+                                  ng-options="option for option in guest.extraGuestsOptions">
+                            <option value="">0</option>
+                          </select>
+                      </div>
+
+                      <div class="col-md-2">
+                        <label for="ex1">Attending*</label>
+                          <div ng-repeat="event in guest.eventOptions">
+                            <input type="radio"
+                                   ng-model="guest.newGuest.attendingEvents"
+                                   ng-value="event">{{ event }}
+                          </div>
+                      </div>
+
+
+                      <input type="submit"
+                             class="btn btn-success add-guest-submit"
+                             value="Confirm"/>
+
+                </div>
+
+              </form>
+
+            </div>
+          </div>
+
+  </div>
 
 <!-- GUEST TABLE -->
-<div class="container">
-      <table class="table table-sm">
-        <thead class="tableHead">
-          <tr>
-            <th>No.</th>
-            <th class="nameHeader">Names
-              <i class="fa fa-sort"
-                 ng-click="guest.orderBy('firstName')"></i>
-            </th>
-            <th>Contact</th>
+  <div class="container">
+    <table class="table table-hover">
+      <thead class="tableHead">
+        <tr>
+          <th>No.</th>
 
-            <th>Attending Events
-              <i class="fa fa-sort"
-                 ng-click="guest.orderBy('attendingEvents')"></i>
-            </th>
-            <th>+ Guests
-              <i class="fa fa-sort"
-                 ng-click="guest.orderBy('extraGuests')"></i>
-            </th>
-            <th>Actions</th>
-            <th></th>
-          </tr>
-        </thead>
+          <th class="nameHeader">Names
+            <i class="fa fa-sort"
+               ng-click="guest.orderBy('firstName')">
+            </i>
+          </th>
+
+          <th>Contact</th>
+
+          <th>Attending Events
+            <i class="fa fa-sort"
+               ng-click="guest.orderBy('attendingEvents')">
+            </i>
+          </th>
+
+          <th>+ Guests
+            <i class="fa fa-sort"
+               ng-click="guest.orderBy('extraGuests')"></i>
+          </th>
+
+          <th>Actions</th>
+        </tr>
+      </thead>
   </table>
 
   <div style="height: 500px; overflow-y: scroll">
@@ -181,21 +257,21 @@
     </table>
   </div>
 
-</div>
-
+  </div>
 </div>
 
 
 <!-- DELETE GUEST MODAL -->
-    <div ng-show="guest.modalShown" class="center-div modalForm">
-              <p>Are you sure you want to delete {{guest.deletingPerson.firstName}} {{guest.deletingPerson.lastName}}?</p>
-                  <button
-                    class="btn btn-default delete-person-button"
-                    ng-click = "guest.deleteGuest(guest.deletingPerson._id)">Delete
-                  </button>
-                  <button
-                    class="btn btn-danger delete-person-button"
-                    ng-click= "guest.modalShown = false">Cancel
-                </button>
-    </div>
+  <div ng-show="guest.modalShown" class="center-div modalForm">
+    <p>Are you sure you want to delete {{guest.deletingPerson.firstName}} {{guest.deletingPerson.lastName}}?</p>
+    <button
+      class="btn btn-default delete-person-button"
+      ng-click = "guest.deleteGuest(guest.deletingPerson._id)">Delete
+    </button>
+
+    <button
+      class="btn btn-danger delete-person-button"
+      ng-click= "guest.modalShown = false">Cancel
+    </button>
+  </div>
 </div>

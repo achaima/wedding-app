@@ -1,23 +1,33 @@
 <!DOCTYPE html>
-
 <div ng-if="auth.user" ui-view="navbar"></div>
 
-<section class="loginPage" ng-if="!auth.user">
+  <section class="loginPage"
+           ng-if="!auth.user">
 
-<div class="justify-content-center login">
-  <div class="email">
-    <input type="text" placeholder="email" class="form-control col-md-8 mx-auto loginForm" ng-model="auth.email">
-  </div>
+    <div class="justify-content-center login">
+      
+        <div class="email">
+          <input type="text"
+                 placeholder="email"
+                 class="form-control col-md-8 mx-auto loginForm"
+                 ng-model="auth.email">
+        </div>
 
-  <div class="password">
-    <input type="password" placeholder="password" class="form-control col-md-4 mx-auto loginForm" ng-model="auth.password">
-  </div>
+        <div class="password">
+          <input type="password"
+                 placeholder="password"
+                 class="form-control col-md-4 mx-auto loginForm"
+                 ng-model="auth.password">
+        </div>
 
-  <button class="btn btn-success" ui-sref="signup" ng-click="auth.signIn()">Sign In</button>
+        <button class="btn btn-success"
+                ui-sref="signup"
+                ng-click="auth.signIn()">Sign In
+        </button>
 
-  <p ng-if="auth.error">
-    <strong>{{ auth.error }}</strong>
-  </p>
-</div>
+        <p ng-if="auth.error">
+          <strong>{{ auth.error }}</strong>
+        </p>
 
-</section>
+    </div>
+  </section>

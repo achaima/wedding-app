@@ -2,63 +2,138 @@
 <div class="container-fluid" ng-controller="GuestController as guest">
   <div class="row justify-content-center">
 
+      <button type="button"
+              name="button"
+              ng-hide="guest.rsvpForm"
+              ng-click="guest.rsvpGuest()"
+              class="btn btn-default mb-4 greenButton">RSVP
+      </button>
 
-<button type="button"
-        name="button"
-        ng-hide="guest.rsvpForm"
-        ng-click="guest.rsvpGuest()"
-        class="btn btn-default mb-4 greenButton">RSVP
-</button>
+      <div class="container rsvp-container mt-4" ng-show="guest.rsvpForm">
 
-<div ng-show="guest.rsvpForm"
-     ui-view="addGuest"
-     class="addGuest">
-</div>
+      <div>
+
+        <i class="fa fa-window-close"
+           ng-click="guest.rsvpGuest()"
+           aria-hidden="true">
+       </i>
+          <h1 class="rsvp-title">RSVP</h1>
+
+
+            <form class="form-group"
+                  name="guestRSVPForm"
+                  ng-submit="guest.AddGuest()" >
+
+                <div class="form-group row" >
+
+                    <div class="col-md-2 ">
+                      <label for="ex1">First Name:*</label>
+                        <input type = "text"
+                               class="form-control"
+                               ng-model="guest.newGuest.firstName"
+                               required/>
+                    </div>
+
+                    <div class="col-md-2">
+                      <label for="ex1">Surname:*</label>
+                        <input type= "text"
+                               class="form-control"
+                               ng-model="guest.newGuest.lastName"
+                               required/>
+                    </div>
+
+                  <div class="col-md-3">
+                     <label for="ex1">Email:</label>
+                       <input  type="textcD"
+                               class="form-control" id="ex2"
+                               ng-model="guest.newGuest.email">
+                   </div>
+
+                   <div class="col-md-2">
+                     <label for="ex1">No.</label>
+                       <input type="text"
+                              class="form-control" id="ex3"
+                              ng-model="guest.newGuest.number">
+                   </div>
+
+                  <div class="col-md-1">
+                    <label for="ex1">+Guests*</label>
+                      <br>
+                      <select class="plus-guest-input-box"
+                              ng-model="guest.newGuest.extraGuests"
+                              ng-options="option for option in guest.extraGuestsOptions">
+                        <option value="">0</option>
+                      </select>
+                  </div>
+
+                  <div class="col-md-2">
+                    <label for="ex1">Attending*</label>
+                      <div ng-repeat="event in guest.eventOptions">
+                        <input type="radio"
+                               ng-model="guest.newGuest.attendingEvents"
+                               ng-value="event">{{ event }}
+                      </div>
+                  </div>
+
+
+                  <input type="submit"
+                         class="btn btn-success add-guest-submit"
+                         value="Confirm"/>
+
+            </div>
+
+          </form>
+
+        </div>
+      </div>
   </div>
 
-<div class="container-fluid mt-4">
+ <div class="container-fluid mt-4">
   <div class="row justify-content-center">
 
       <div class="col-md-4">
-          <div class="card">
-            <img class="card-img-top img-fluid" src="../images/classic-wedding.jpg" alt="Card image cap">
-            <div class="card-block">
-              <h4 class="card-title">White Wedding</h4>
-              <p class="card-text">Where:<br>
-              Bingham Hotel, 61-63 Petersham Road, Surrey, TW10 6UT</p>
-              <p class="card-text">When:<br>
-              Friday June 13 <br>
-              6:00pm</p>
-              <p class="card-text">Attire:<br>
-              Caftans & Denim cut-off casual. Bring or wear your suit for a dip in the Atlantic.</p>
-            </div>
+        <div class="card">
+
+          <img class="card-img-top img-fluid"
+              src="../images/classic-wedding.jpg"
+              alt="Card image cap">
+
+          <div class="card-block">
+            <h4 class="card-title">White Wedding</h4>
+            <p class="card-text">Where:<br>
+            Bingham Hotel, 61-63 Petersham Road, Surrey, TW10 6UT</p>
+            <p class="card-text">When:<br>
+            Friday June 13 <br>
+            6:00pm</p>
+            <p class="card-text">Attire:<br>
+            Caftans & Denim cut-off casual. Bring or wear your suit for a dip in the Atlantic.</p>
           </div>
+
+        </div>
       </div>
 
-      <!-- <div class="col-md-2">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2486.158865119919!2d-0.30548858423193326!3d51.45523957962655!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48760c3fa83a9895%3A0xb22de87d17009c26!2sBingham!5e0!3m2!1sen!2suk!4v1506426541638" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-      </div> -->
 
       <div class="col-md-4">
-          <div class="card">
-            <img class="card-img-top img-fluid" src="../images/traditional-wedding.jpg" alt="Card image cap">
-            <div class="card-block">
-              <h4 class="card-title">Traditional Wedding</h4>
-              <p class="card-text">Where:<br>
-              The Decorium, 22 Western Road, Wood Green, London N22 6UH</p>
-              <p class="card-text">When:<br>
-              Friday June 13 <br>
-              6:00pm</p>
-              <p class="card-text">Attire:<br>
-              Caftans & Denim cut-off casual. Bring or wear your suit for a dip in the Atlantic.</p>
-            </div>
-          </div>
-      </div>
+        <div class="card">
+          <img class="card-img-top img-fluid"
+               src="../images/traditional-wedding.jpg"
+               alt="Card image cap">
 
-      <!-- <div class="col-md-2">
-        <iframe <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2478.526279916625!2d-0.11752438465322616!3d51.595244979649586!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761be0e712b70d%3A0x9c8fe4496c4b1a92!2s22+Western+Rd%2C+Wood+Green%2C+London+N22+6UH!5e0!3m2!1sen!2suk!4v1506426695570" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-      </div> -->
+          <div class="card-block">
+            <h4 class="card-title">Traditional Wedding</h4>
+            <p class="card-text">Where:<br>
+            The Decorium, 22 Western Road, Wood Green, London N22 6UH</p>
+            <p class="card-text">When:<br>
+            Friday June 13 <br>
+            6:00pm</p>
+            <p class="card-text">Attire:<br>
+            Caftans & Denim cut-off casual. Bring or wear your suit for a dip in the Atlantic.</p>
+          </div>
+
+        </div>
+      </div>
 
     </div>
   </div>
+
 </div>
