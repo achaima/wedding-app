@@ -126,7 +126,7 @@ text-decoration: underline;
 
 /*==============================GUESTBOOK==============================*/
 
-.center-div {
+/*.center-div {
   position: absolute;
   margin: auto;
   top: 0;
@@ -135,7 +135,7 @@ text-decoration: underline;
   left: 0;
   border-radius: 3px;
   z-index: 1;
-}
+}*/
 
 .greenButton {
   background-color: #004000;

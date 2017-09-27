@@ -1,21 +1,17 @@
-  <div class="container">
-    <div class="row justify-content-center">
-
-    <div ng-controller = "GuestBookController as post"
+<div ng-controller = "GuestBookController as post"
          ng-init="post.getAllPost()">
 
-
-      <div class="container">
-        <div class="row justify-content-center">
+  <div class="container">
+      <div class="row justify-content-center">
           <button type="button"
                   class="btn btn-default greenButton"
                   ng-hide="post.modalForm"
                   ng-click="post.openGuestbookForm()">Leave us a message
           </button>
-      </div>
 
-      <div class="container d-flex h-100">
-          <div class="row justify-content-center align-self-center">
+
+      <div class="container">
+          <div class="row">
 
             <form class="form-group"
                   name="guestBookForm"
@@ -26,22 +22,22 @@
                      ng-click="post.openGuestbookForm()"></i>
 
 
-            <div ng-hide="post.guestbookMessageOpen" class="center-div">
+            <div ng-hide="post.guestbookMessageOpen">
 
                       <div>
                           <input type = "text"
-                                 class="form-control guestbookInputForm"
+                                 class="form-control"
                                  placeholder="Your name"
                                  ng-model="post.newPost.name"
                                  required/>
                       </div>
 
                       <div>
-                        <textarea class="form-control guestbookInputForm"
+                        <textarea class="form-control"
                                   rows="5" id="comment"
                                   placeholder="Leave a message..."
-                                  ng-model="post.newPost.message"
-                                  ></textarea>
+                                  ng-model="post.newPost.message">
+                        </textarea>
                       </div>
 
                     <div class="post-button">
@@ -54,24 +50,23 @@
 
             </div>
 
-                      <div class="confirmMessageDiv"
-                           ng-show="post.guestbookMessageOpen">
-                          <div class="col-md-2">
-                            <label for="ex1">Name:</label>
-                              <p>{{post.newPost.name}}</p>
-                          </div>
+            <div ng-show="post.guestbookMessageOpen">
+                <div>
+                  <label for="ex1">Name:</label>
+                    <p>{{post.newPost.name}}</p>
+                </div>
 
-                          <div class="col-md-3">
-                            <label for="ex1">Message:</label>
-                              <p>{{post.newPost.message}}</p>
-                          </div>
+                <div>
+                  <label for="ex1">Message:</label>
+                    <p>{{post.newPost.message}}</p>
+                </div>
 
-                          <div class="col-md-2">
-                            <input type="submit"
-                                 class="btn btn-success add-guest-submit"
-                                 value="Confirm"/>
-                          </div>
-                      </div>
+                <div>
+                  <input type="submit"
+                       class="btn btn-success add-guest-submit"
+                       value="Confirm"/>
+                </div>
+            </div>
 
             </form>
 
@@ -106,5 +101,4 @@
     </div>
 
   </div>
-</div>
 </div>
