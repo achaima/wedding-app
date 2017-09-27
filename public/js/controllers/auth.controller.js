@@ -1,5 +1,5 @@
 function AuthController($state, AuthFactory) {
-  var controller = this;
+  const controller = this;
 
   controller.signIn = () => {
     controller.error = null;

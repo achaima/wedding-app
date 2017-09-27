@@ -1,7 +1,7 @@
-var Guest = require('../models/guest.model');
+const Guest = require('../models/guest.model');
 
 function getAll(req, res) {
-  Guest.find(function(err, guests){
+  Guest.find((err, guests) => {
     if (err) {
       return res.json(err);
     } else {
@@ -11,7 +11,7 @@ function getAll(req, res) {
 }
 
 function getGuest(req, res) {
-  var guestId = req.params.guestId;
+  const guestId = req.params.guestId;
 
   Guest.findOne({ _id: guestId},(err, guest) => {
     if (err) {
@@ -33,7 +33,7 @@ function createGuest(req, res) {
 }
 
 function deleteGuest(req, res) {
-  var guestId = req.params.guestId;
+  const guestId = req.params.guestId;
   Guest.deleteOne({ _id: guestId },(err) => {
     if (err) {
       return res.json(err, 'Could not find guest to delete');
@@ -43,8 +43,8 @@ function deleteGuest(req, res) {
   });
 }
 function updateGuest(req, res) {
-  var guestId = req.params.guestId;
-  var updatedGuest = req.body;
+  const guestId = req.params.guestId;
+  const updatedGuest = req.body;
   Guest.findById({ _id: guestId },(err, guest) => {
     if (err) return res.json(err, 'Could not get existing guest to update');
     if(updatedGuest.firstName) guest.firstName = updatedGuest.firstName;

@@ -1,9 +1,9 @@
-var Post = require('../models/guestbook.model');
-var moment = require('moment');
+const Post = require('../models/guestbook.model');
+const moment = require('moment');
 
 function createPost(req, res) {
-  var date = moment();
-  var time = date.format('D MMM YY, hh:mm');
+  const date = moment();
+  const time = date.format('D MMM YY, hh:mm');
   req.body['timestamp']= time;
   Post.create(req.body, function (err) {
     if(err) {

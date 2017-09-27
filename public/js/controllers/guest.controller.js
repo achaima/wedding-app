@@ -41,12 +41,11 @@ function GuestController(GuestFactory, $stateParams, $state) {
   }
 
   controller.getAll = () => {
-    GuestFactory.getAll($stateParams).then(
+    GuestFactory.getAll().then(
       (response) => {
-        console.log($stateParams, 'stateParams');
         controller.guests = response.data;
-        controller.registeredGuests = controller.guests.length;
 
+        controller.registeredGuests = controller.guests.length;
         categoriseGuests();
         controller.whiteWeddingGuestsTotal = sumEventGuests('White Wedding');
         controller.traditionalGuestsTotal = sumEventGuests('Traditional Wedding');
@@ -62,23 +61,22 @@ function GuestController(GuestFactory, $stateParams, $state) {
 
   controller.AddGuest = () => {
     GuestFactory.createGuest(controller.newGuest).then(
-            (response) => {
-              $state.reload();
-              console.log('Created new Guest:', response);
-            },
-            (error) => {
-              console.warn('Error creating Guest:', error);
-            }
-          );
+      (response) => {
+        $state.reload();
+        console.log('Created new Guest:', response);
+      },
+      (error) => {
+        console.warn('Error creating Guest:', error);
+      }
+    );
   };
 
 //**************************DELETE GUEST***********************************//
   controller.deleteGuest = (guestId) => {
 
     GuestFactory.deleteGuest(guestId).then(
-      (response) => {
+      () => {
         $state.reload();
-        console.log('deleted guest:', response);
       },
       (error) => {
         console.warn('Error deleting guest:', error);
@@ -113,7 +111,6 @@ function GuestController(GuestFactory, $stateParams, $state) {
   //******FILTER******//
   controller.filterBy = (eventFilter) => {
     if(controller.eventFilter === eventFilter) {
-      // controller.showPaginator = true;
       controller.eventFilter = '';
     } else {
       controller.showPaginator = false;

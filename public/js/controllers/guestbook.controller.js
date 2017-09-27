@@ -1,5 +1,5 @@
 function GuestBookController(GuestBookFactory, $stateParams, $state) {
-  var controller = this;
+  const controller = this;
 
   controller.addPost = () => {
     GuestBookFactory.createPost(controller.newPost).then(

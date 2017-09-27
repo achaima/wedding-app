@@ -21,30 +21,39 @@ body {
 
 /*lOGIN FORM*/
 
+.loginPage {
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  width: 100vw;
+  position: relative;
+  top: -55px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgba(255,255,255, .2); /* fallback for old browsers */
+  background-blend-mode: overlay;
+}
+
 .login {
-  border: 3px solid #f1f1f1;
-  margin: 50px 300px;
-  padding: 50px 50px;
+  border-radius: 5px;
+  padding: 10px 30px;
+  background-color: rgba(255,255,255, .98);
+  color: white;
+  text-shadow: 1px 1px black;
+  width: 380px;
+  box-shadow: 1px 1px 1px #b3b3b3;
+  margin: 200px 500px;
 }
 
-
-input[type=password]{
-  border: 2px solid transparent;
-  border-radius: 3px;
-  font-size: 16px;
-  font-weight: 200;
-  padding: 10px 0;
-  width: 250px;
-  transition: border .5s;
+.loginForm{
+  border-radius: 5px;
+  padding: 8px;
+  margin: 10px 0px;
+  width: 300px;
+  color: black;
 }
 
-input[type=text]:focus{
-  box-shadow: none;
-  }
-
-input[type=password]:focus{
-  box-shadow: none;
- }
 
 input[type=text]:focus::-webkit-input-placeholder {
   color:transparent;
@@ -58,15 +67,19 @@ input[type=password]:focus::-webkit-input-placeholder {
 /*NAVIGATION BAR*/
 nav {
   background-color: #191919!important;
+  padding: 0!important
 }
+
+.navbar-toggler {
+  margin: 10px;
+  background-color: white!important;
+}
+
 
 .nav-link {
   color: #fefdfb!important;
   font-size: 13px;
-}
-
-.welcome-container {
-  margin-top: 30vh;
+  padding: 12px!important;
 }
 
 .homeLogo {
@@ -186,10 +199,14 @@ text-decoration: underline;
   font-size: 15px;
 }
 
+.adminRow {
+  margin-bottom: 25px;
+  margin-left: -1px!important;
+}
+
 .names{
   text-transform: capitalize;
 }
-
 
 .btn-secondary{
   margin-left: 5px;
@@ -197,8 +214,6 @@ text-decoration: underline;
 
 .badge-default {
   background-color: #191919 !important;
-
-
 }
 
 .add-guest {
@@ -206,18 +221,11 @@ text-decoration: underline;
 }
 
 .nameHeader {
-  padding-right: 8vw!important;
+  padding-right: 5vw!important;
 }
-
-/*.editName {
-  width: 8vw;
-}
-
-.actionColumn{
-  width:12vw;
-}*/
 
 .close {
+  margin-right: 15px;
   color: #e60000!important;
   text-shadow: none;
 }
@@ -238,13 +246,4 @@ margin-right: 5px;
   font-weight: bold;
   color: #262626;
   font-size: 15px;
-}
-
-.table {
-  margin-top: 25px;
-}
-
-.pagination-div {
-  display: inline;
-  text-align: center;
 }

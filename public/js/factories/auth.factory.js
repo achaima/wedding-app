@@ -2,7 +2,7 @@
 
 function AuthRun() {
   // Initialize Firebase
-  var config = {
+  const config = {
     apiKey: 'AIzaSyAet-UgJOnJrTC8o75QHOD8lhFHKvJBVjc',
     authDomain: 'wedding-app-a02aa.firebaseapp.com',
     databaseURL: 'https://wedding-app-a02aa.firebaseio.com',
