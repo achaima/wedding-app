@@ -22,8 +22,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(morgan('dev'));
 app.use(router);
-console.log('app is listening on port', PORT);
-app.listen(PORT, function(){
+app.listen(PORT, () => {
+  console.log('app is listening on port', PORT);
 });
 
 module.exports = app;

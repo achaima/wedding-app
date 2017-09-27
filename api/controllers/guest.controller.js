@@ -13,7 +13,7 @@ function getAll(req, res) {
 function getGuest(req, res) {
   var guestId = req.params.guestId;
 
-  Guest.findOne({ _id: guestId}, function(err, guest){
+  Guest.findOne({ _id: guestId},(err, guest) => {
     if (err) {
       return res.json(err,'could not retrieve this guest');
     } else {
@@ -23,7 +23,7 @@ function getGuest(req, res) {
 }
 
 function createGuest(req, res) {
-  Guest.create(req.body, function(err) {
+  Guest.create(req.body, (err) => {
     if (err) {
       return res.json(err, 'went wrong here');
     } else {
@@ -34,7 +34,7 @@ function createGuest(req, res) {
 
 function deleteGuest(req, res) {
   var guestId = req.params.guestId;
-  Guest.deleteOne({ _id: guestId }, function(err) {
+  Guest.deleteOne({ _id: guestId },(err) => {
     if (err) {
       return res.json(err, 'Could not find guest to delete');
     } else {
@@ -45,13 +45,13 @@ function deleteGuest(req, res) {
 function updateGuest(req, res) {
   var guestId = req.params.guestId;
   var updatedGuest = req.body;
-  Guest.findById({ _id: guestId }, function(err, guest) {
+  Guest.findById({ _id: guestId },(err, guest) => {
     if (err) return res.json(err, 'Could not get existing guest to update');
     if(updatedGuest.firstName) guest.firstName = updatedGuest.firstName;
     if(updatedGuest.lastName) guest.lastName = updatedGuest.lastName;
     if(updatedGuest.attendingEvents) guest.attendingEvents = updatedGuest.attendingEvents;
     if(updatedGuest.extraGuests) guest.extraGuests = updatedGuest.extraGuests;
-    guest.save(function(error) {
+    guest.save((error) => {
       if(error) return res.json({ message: 'could not get guest to save'});
       res.json({ message: 'guest successfully saved'});
     });
@@ -60,9 +60,9 @@ function updateGuest(req, res) {
 
 
 module.exports = {
-  createGuest: createGuest,
-  deleteGuest: deleteGuest,
-  getAll: getAll,
-  getGuest: getGuest,
-  updateGuest: updateGuest
+  createGuest,
+  deleteGuest,
+  getAll,
+  getGuest,
+  updateGuest
 };

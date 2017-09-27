@@ -6,7 +6,7 @@ function AuthController($state, AuthFactory) {
     AuthFactory.$signInWithEmailAndPassword(controller.email, controller.password).then(
       () => {
         resetCredentials();
-        $state.go('welcome');
+        $state.go('home');
       },
       (error) => {
         controller.error = error;

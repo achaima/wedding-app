@@ -1,30 +1,24 @@
 function GuestController(GuestFactory, $stateParams, $state) {
-  var controller = this;
-
-  controller.editGuest = function(person) {
-    controller.updatedGuest = person;
-  };
+  const controller = this;
 
 //****************************GET GUEST***********************************//
   controller.getGuest= function(guestId){
     if (guestId) {
       GuestFactory.getGuest(guestId).then(
-        function success(success) {
+        (success) => {
           controller.guestDetails = success.data;
         },
-        function error(error) {
+        (error) => {
           console.warn('Error getting guest:', error.message);
         }
       );
     }
   };
 
-
   function categoriseGuests(){
-    controller.guests.forEach(function(guest) {
-      controller.eventOptions.forEach(function(event) {
+    controller.guests.forEach((guest) => {
+      controller.eventOptions.forEach((event) => {
         if(guest.attendingEvents === event) {
-          console.log(event);
           controller.allGuests[event].push(guest);
         }
       });
@@ -32,20 +26,24 @@ function GuestController(GuestFactory, $stateParams, $state) {
   }
 
   function sumEventGuests(event) {
-    let total = controller.allGuests[event].reduce(function(sum, guest){
+    let total = controller.allGuests[event].reduce((sum, guest) => {
       return sum += guest.extraGuests;
     }, 0);
-    //maybe name this Both guests as a var
-    controller.allGuests['Both'].forEach(function(guest) {
+
+    const both = controller.allGuests['Both'];
+    both.forEach((guest) => {
       total += guest.extraGuests;
     });
-    total += controller.allGuests['Both'].length;
+
+    total += both.length + controller.allGuests[event].length;
+
     return total;
   }
 
-  controller.getAll = function() {
+  controller.getAll = () => {
     GuestFactory.getAll($stateParams).then(
-      function success (response) {
+      (response) => {
+        console.log($stateParams, 'stateParams');
         controller.guests = response.data;
         controller.registeredGuests = controller.guests.length;
 
@@ -55,51 +53,48 @@ function GuestController(GuestFactory, $stateParams, $state) {
 
         controller.totalGuests = controller.whiteWeddingGuestsTotal + controller.traditionalGuestsTotal;
       },
-      function err(err) {
+      (err) => {
         console.warn('Could not get guests', err);
       }
      );
   };
-
-
-
 //****************************ADD GUEST***********************************//
 
-  controller.AddGuest = function() {
+  controller.AddGuest = () => {
     GuestFactory.createGuest(controller.newGuest).then(
-            function sucess(response) {
+            (response) => {
               $state.reload();
               console.log('Created new Guest:', response);
             },
-            function error(error) {
+            (error) => {
               console.warn('Error creating Guest:', error);
             }
           );
   };
 
 //**************************DELETE GUEST***********************************//
-  controller.deleteGuest = function(guestId) {
+  controller.deleteGuest = (guestId) => {
 
     GuestFactory.deleteGuest(guestId).then(
-      function sucess(response) {
+      (response) => {
         $state.reload();
         console.log('deleted guest:', response);
       },
-      function error(error) {
+      (error) => {
         console.warn('Error deleting guest:', error);
       }
    );
   };
 
 //**************************UPDATE GUEST***********************************//
-  controller.updateGuest = function (updatedGuest) {
+  controller.updateGuest = (updatedGuest) => {
     const guestId = updatedGuest._id;
 
     GuestFactory.updateGuest(updatedGuest, guestId).then(
-      function success() {
+      () => {
         $state.reload();
       },
-      function error(error) {
+      (error) => {
         console.warn('Error updating guest:', error);
       }
     );
@@ -107,7 +102,7 @@ function GuestController(GuestFactory, $stateParams, $state) {
 
 
   //******ORDER BY HEADERS******//
-  controller.orderBy = function(header) {
+  controller.orderBy = (header) => {
     if(controller.headerSort === header) {
       controller.headerSort = '-' + header;
     } else {
@@ -116,7 +111,7 @@ function GuestController(GuestFactory, $stateParams, $state) {
   };
 
   //******FILTER******//
-  controller.filterBy = function(eventFilter) {
+  controller.filterBy = (eventFilter) => {
     if(controller.eventFilter === eventFilter) {
       // controller.showPaginator = true;
       controller.eventFilter = '';
@@ -126,20 +121,23 @@ function GuestController(GuestFactory, $stateParams, $state) {
     }
   };
 
+  controller.editGuest = (person) => {
+    controller.updatedGuest = person;
+  };
 
-  controller.disableEdit = function() {
+  controller.disableEdit = () => {
     controller.isEditDisabled = true;
   };
-  controller.enableEdit = function() {
+  controller.enableEdit = () => {
     controller.isEditDisabled = false;
   };
 
-  controller.openModal= function(person) {
+  controller.openModal= (person) => {
     controller.modalShown = !controller.modalShown;
     controller.deletingPerson = person;
   };
-  
-  controller.rsvpGuest = function(){
+
+  controller.rsvpGuest = () => {
     console.log('clicked');
     controller.rsvpForm = !controller.rsvpForm;
   };

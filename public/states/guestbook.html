@@ -83,22 +83,20 @@
         <div class="row justify-content-center" style="height: 80vh; overflow-y: scroll">
 
         <ul ng-repeat="p in post.posts | orderBy:'timestamp': true track by $index"
-            class="comment-section list-group row col-md-5">
+            class="comment-section row col-md-5">
           <li class="guestbooklist-item ">
 
-          <i class="fa fa-quote-left" aria-hidden="true"></i>
+              <i class="fa fa-quote-left" aria-hidden="true"></i>
 
-          <div class="guestBookComments">
-            {{p.message}} {{p.shuffle()}}
-          </div>
+                <div class="guestBookComments">
+                  {{p.message}} {{p.shuffle()}}
+                </div>
 
-          <i class="fa fa-quote-right" aria-hidden="true"></i>
+              <i class="fa fa-quote-right" aria-hidden="true"></i>
 
-              <div class="guestBookNames"> - {{p.name}}
-              <p class="timestamp">{{ p.timestamp | date : "MMM dd,yy HH:mm" : "+0100" }}</p>
-              </div>
-
-
+                  <div class="guestBookNames"> - {{p.name}}
+                  <p class="timestamp">{{ p.timestamp | date : "MMM dd,yy HH:mm" : "+0100" }}</p>
+                  </div>
           </li>
         </ul>
       </div>

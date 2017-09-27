@@ -37,8 +37,8 @@ function GuestFactory ($http) {
 
 }
 
-
 GuestFactory.$inject = ['$http'];
+
 angular
   .module('wedding-rsvp')
   .factory('GuestFactory', GuestFactory);

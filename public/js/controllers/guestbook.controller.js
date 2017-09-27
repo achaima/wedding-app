@@ -1,33 +1,33 @@
 function GuestBookController(GuestBookFactory, $stateParams, $state) {
   var controller = this;
 
-  controller.addPost = function(){
+  controller.addPost = () => {
     GuestBookFactory.createPost(controller.newPost).then(
-        function success(response) {
+        (response) => {
           $state.reload();
           console.log('Created new post', response);
         },
-        function error(err) {
+        (err) => {
           console.warn('error creating post', err);
         }
       );
   };
 
-  controller.getAllPost = function() {
+  controller.getAllPost = () => {
     GuestBookFactory.getAllPost($stateParams).then(
-      function success (response) {
+      (response) => {
         controller.posts= response.data;
       },
-      function err(err) {
+      (err) => {
         console.warn('Could not get posts', err);
       }
      );
   };
 
-  controller.openGuestbookForm = function() {
+  controller.openGuestbookForm = () => {
     controller.modalForm = !controller.modalForm;
   };
-  controller.confirmGuestbookMessage = function() {
+  controller.confirmGuestbookMessage = () => {
     controller.guestbookMessageOpen = !controller.guestbookMessageOpen ;
   };
 

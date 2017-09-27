@@ -11,17 +11,9 @@
     <input type="password" placeholder="password" ng-model="auth.password">
   </div>
 
-  <button class="signinbtn" ng-click="auth.signIn()">Sign In</button>
+  <button class="signinbtn" ui-sref="signup" ng-click="auth.signIn()">Sign In</button>
 
   <p ng-if="auth.error">
     <strong>{{ auth.error }}</strong>
   </p>
 </section>
-
-<!-- <section ng-if="auth.user">
-  <div class="container welcome-container col-md-5">
-    <div class="row justify-content-center">
-      <img class="couplesName" src="../images/couples-name.png" alt="">
-    </div>
-  </div>
-</section> -->

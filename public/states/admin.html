@@ -4,7 +4,6 @@
 
     <div class="row">
 
-<!-- SEARCHBOX AND FILTER ROW -->
       <div class="input-group col-md-4">
         <input type="text"
                class="form-control names"
@@ -60,7 +59,7 @@
 
 <!-- GUEST TABLE -->
 <div class="col-md-10">
-      <table class="table table-hover">
+      <table class="table table-active">
         <thead class="tableHead">
           <tr>
             <th>No.</th>
@@ -132,7 +131,7 @@
 
           <td ng-hide="editMode">{{ person.extraGuests}}</td>
             <td ng-show="editMode">
-              <select  ng-model="guest.updatedGuest.extraGuests">
+              <select ng-model="guest.updatedGuest.extraGuests">
                 <option value="0" ng-selected="guest.updatedGuest.extraGuests === 0">0</option>
                 <option
                   ng-repeat="option in guest.extraGuestsOptions"
@@ -199,4 +198,4 @@
                     ng-click= "guest.modalShown = false">Cancel
                 </button>
     </div>
-   </div>
+</div>

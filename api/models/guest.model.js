@@ -24,7 +24,7 @@ const GuestSchema = Schema({
     required: false
   },
   number: {
-    type: String,
+    type: Number,
     required: false
   }
 });
