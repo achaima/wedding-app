@@ -10,8 +10,7 @@ function MainRouter($stateProvider, $urlRouterProvider) {
     .state('admin', {
       url: '/admin',
       views: {
-        '': { templateUrl: '../states/admin.html' },
-        'addGuest@admin': { templateUrl: '../states/partials/rsvp.html' }
+        '': { templateUrl: '../states/admin.html' }
       },
       resolve: {
         currentAuth: [
@@ -57,8 +56,7 @@ function MainRouter($stateProvider, $urlRouterProvider) {
     .state('wedding-details', {
       url: '/wedding-details',
       views: {
-        '': { templateUrl: '../states/wedding-details.html' },
-        'addGuest@wedding-details': { templateUrl: '../states/partials/rsvp.html' }
+        '': { templateUrl: '../states/wedding-details.html' }
       },
       resolve: {
         currentAuth: [
@@ -72,8 +70,7 @@ function MainRouter($stateProvider, $urlRouterProvider) {
     .state('rsvp', {
       url: '/rsvp',
       views: {
-        '': { templateUrl: '../states/rsvp.html' },
-        'navbar@rsvp': { templateUrl: '../states/partials/navbar.html' }
+        '': { templateUrl: '../states/rsvp.html' }
       },
       resolve: {
         currentAuth: [

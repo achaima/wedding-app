@@ -48,8 +48,8 @@
                  aria-hidden="true"></i>
           </button>
 
-          <div class="container rsvp-container mt-4" ng-show="guest.rsvpForm">
-
+<!---RSVP FROM --->
+        <div class="container rsvp-container mt-4" ng-show="guest.rsvpForm">
           <div>
 
             <i class="fa fa-window-close"
@@ -81,43 +81,43 @@
                                    required/>
                         </div>
 
-                      <div class="col-md-3">
-                         <label for="ex1">Email:</label>
-                           <input  type="textcD"
-                                   class="form-control" id="ex2"
-                                   ng-model="guest.newGuest.email">
-                       </div>
+                        <div class="col-md-3">
+                           <label for="ex1">Email:</label>
+                             <input  type="textcD"
+                                     class="form-control" id="ex2"
+                                     ng-model="guest.newGuest.email">
+                         </div>
 
-                       <div class="col-md-2">
-                         <label for="ex1">No.</label>
-                           <input type="text"
-                                  class="form-control" id="ex3"
-                                  ng-model="guest.newGuest.number">
-                       </div>
+                         <div class="col-md-2">
+                           <label for="ex1">No.</label>
+                             <input type="text"
+                                    class="form-control" id="ex3"
+                                    ng-model="guest.newGuest.number">
+                         </div>
 
-                      <div class="col-md-1">
-                        <label for="ex1">+Guests*</label>
-                          <br>
-                          <select class="plus-guest-input-box"
-                                  ng-model="guest.newGuest.extraGuests"
-                                  ng-options="option for option in guest.extraGuestsOptions">
-                            <option value="">0</option>
-                          </select>
-                      </div>
+                        <div class="col-md-1">
+                          <label for="ex1">+Guests*</label>
+                            <br>
+                            <select class="plus-guest-input-box"
+                                    ng-model="guest.newGuest.extraGuests"
+                                    ng-options="option for option in guest.extraGuestsOptions">
+                              <option value="">0</option>
+                            </select>
+                        </div>
 
-                      <div class="col-md-2">
-                        <label for="ex1">Attending*</label>
-                          <div ng-repeat="event in guest.eventOptions">
-                            <input type="radio"
-                                   ng-model="guest.newGuest.attendingEvents"
-                                   ng-value="event">{{ event }}
-                          </div>
-                      </div>
+                        <div class="col-md-2">
+                          <label for="ex1">Attending*</label>
+                            <div ng-repeat="event in guest.eventOptions">
+                              <input type="radio"
+                                     ng-model="guest.newGuest.attendingEvents"
+                                     ng-value="event">{{ event }}
+                            </div>
+                        </div>
 
 
-                      <input type="submit"
-                             class="btn btn-success add-guest-submit"
-                             value="Confirm"/>
+                        <input type="submit"
+                               class="btn btn-success add-guest-submit"
+                               value="Confirm"/>
 
                 </div>
 
@@ -262,7 +262,7 @@
 
 
 <!-- DELETE GUEST MODAL -->
-  <div ng-show="guest.modalShown" class="center-div modalForm">
+  <div ng-show="guest.modalShown" class="delete-guest">
     <p>Are you sure you want to delete {{guest.deletingPerson.firstName}} {{guest.deletingPerson.lastName}}?</p>
     <button
       class="btn btn-default delete-person-button"
